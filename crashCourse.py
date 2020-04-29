@@ -65,23 +65,23 @@ if __name__ == '__main__':
     throws = list()
 
     for sim_round in range(sim_rounds):
-        throw_A = roll_dice()
-        throw_B = roll_dice()
+        throw_player_A = roll_dice()
+        throw_player_B = roll_dice()
 
-        throws.append(throw_A)
-        throws.append(throw_B)
+        throws.append(throw_player_A)
+        throws.append(throw_player_B)
 
-        if throw_A > throw_B:
+        if throw_player_A > throw_player_B:
             winners.append(player_A_name)
-        elif throw_B > throw_A:
+        elif throw_player_B > throw_player_A:
             winners.append(player_B_name)
         else:
             winners.append("Draw")
 
     display_wins(winners)
 
-    throw_hist, throw_hist_ax = plt.subplots(1, 1)
+    throw_hist_fig, throw_hist_ax = plt.subplots(1, 1)
     plot_dice_histogram(throw_list=throws, ax=throw_hist_ax)
 
-    throw_hist.show()
-    throw_hist.savefig("throw_hist.svg")
+    throw_hist_fig.show()
+    throw_hist_fig.savefig("throw_hist.svg")
